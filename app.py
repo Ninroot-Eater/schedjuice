@@ -18,6 +18,7 @@ login = LoginManager(app)
 login.login_view = "login"
 
 
+
 # translating sqlite things to python classes (but, I just ended up executing raw SQL commands)
 class_lst = ["class1id", "class2id", "class3id", "class4id", "class5id", "class6id", "class7id", "class8id"]  
 class_days = ["class1days", "class2days", "class3days","class4days","class5days","class6days", "class7days", "class8days"]
@@ -313,13 +314,14 @@ classes_id_list = [i[0] for i in q.cursor.fetchall()]
 
 @app.route('/')
 def index():
+    x = session
     q = db.session.execute("SELECT id FROM assistants ORDER BY id")
     assistants_id_list = [i[0] for i in q.cursor.fetchall()]
 
     q = db.session.execute("SELECT c_id FROM classes ORDER BY c_id")
     classes_id_list = [i[0] for i in q.cursor.fetchall()]
     
-    return render_template('index.html')
+    return render_template('index.html', x = x)
 
 @app.route('/register', methods = ["POST"])
 def register():
@@ -667,7 +669,8 @@ def login():
         else:
             login_user(user)
             next_page = request.args.get('next')
-            print(next_page)
+            
+            
             session.permanent = True
             if next_page is not None:
                 return redirect(url_for(next_page))
