@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url(https://adc-drc.com/wp-content/uploads/2020/03/developpeur.jpg);
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position-y: -100px;
+        }
+        .nav-bar{
+           width: auto;
+           height: 60px;
+           background-color: rgb(42, 40, 40);
+           
+        }
+        .nav-item{
+            display: flex;
+           
+            
+        }
+        .nav-item a:hover{
+            color: black;
+            background-color: #fff;
+        }
+         .nav-item a{
+  
+             text-align: center;
+             padding: 15px;
+             text-decoration: none;
+             color: white;
+             font-size: 20px;
+             font-family: 'Noto Sans', sans-serif;
+             
+         }
+        .mid-content{
+           
+           height: 800px;
+           width: auto;
+           margin-left: 550px;
+           margin-top:300px ;
+           justify-content: center;
+           align-items: center;
+        }
+        .heading{
+            padding: 0%;
+            margin: 0%;
+            font-family: 'Noto Sans', sans-serif;
+            color:whitesmoke;
+            font-weight: 100;
+            margin-left: 140px;
+            margin-bottom: 50px;
+        }
+        .search-box{
+                margin-top: 5px;
+                width: 600px;
+                height: 40px;
+                padding: 10px;
+   
+                background-color: #f6f6f6;
+                border-radius: 100px;
+                display: flex;
+                /* justify-content: center; */
+                align-items: center;
+}
+        .search-box .lens{
+        margin-right: 10px;
+        color: grey;
+        
+        }
+        .search-input{
+        color: var(--text);
+        background-color: #f6f6f6;
+        border: none;
+        
+        }
+        .search-input:focus{
+        outline: none;
+        }
+        .footer{
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <title>home page</title>
+</head>
+<body>
+    <div class="nav-bar">
+     <div class="nav-item">
+         <a href="">Home</a>
+         <a href="">Asistants</a>
+         <a href="">About Us</a>
+         <a href="">Service</a>
+         <a href="">Contact</a>
+     </div>
+    </div>
+    <div class="mid-content">
+
+        <h1 class="heading">Content You like To Add</h1>
+        
+        <div style="color: whitesmoke;font-family:'Noto Sans', sans-serif;margin-left: 200px;margin-bottom: 50px;">Extra Content You Like To Add</div>
+        
+        <div class="search-box">
+         
+            <i class="fas fa-search lens"></i>
+  
+            <input type="text" class="search-input" placeholder="search asistant name">
+          </div>
+     </div>
+    <div class="footer"></div>
+</body>
+</html>

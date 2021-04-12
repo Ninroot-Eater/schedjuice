@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    <style>
+        #inner {
+  display: table;
+  margin: 0 auto;
+  
+}
+
+#outer {
+  
+  width:100%
+}
+    </style>
+
+    <div id = 'outer'>
+        <div id= 'inner' >
+            <h1>DELETION</h1>
+        </div>
+        <div id = 'inner'>
+            <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 15px;">this is irreversible.</p>
+        </div>
+        <div id = 'inner'>
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 30px;">
+            Are you sure you want to delete the class {{x[0][1]['class_name']}} [id = {{x[0][1]['c_id']}}]?</p>
+        </div>
+        <div id = 'inner'>
+            <form action="/classes/delete/{{x[0][1]['c_id']}}" method="POST">
+            <input type="password" name="password" placeholder="Type in your password">
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>

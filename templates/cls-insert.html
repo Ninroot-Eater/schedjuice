@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    <h1 style="text-align: center;">Add a new class entry</h1>
+    <div style="width: 50%; margin: auto; padding-top: 50px;" >
+        
+        <form class='unsetter'action="/classes/insert" method='POST'>
+            <input  required name='class_name' 
+            class='unsetter'type="text" placeholder="Class' name"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            <div style="padding-bottom: 10px;"></div>
+
+            <input  required name='time_from' 
+            class='unsetter'type="text" placeholder="Class starts at"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            <div style="padding-bottom: 10px;"></div>
+            
+            <input  required name='time_to' 
+            class='unsetter'type="text" placeholder="Class ends at"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            <div style="padding-bottom: 10px;"></div>
+
+            <input  required name='main_name' 
+            class='unsetter'type="text" placeholder="Main teacher's name"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            <div style="padding-bottom: 10px;"></div>
+            
+            <select required name='class_cat' 
+            class='unsetter'type="text"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+             <option selected disabled value="">Class category</option>
+             <option value="Starters">Starters</option>
+             <option value="Movers">Movers</option>
+             <option value="Flyers">Flyers</option>
+             <option value="KET">KET</option>
+             <option value="PET">PET</option>
+             <option value="FCE">FCE</option>
+             <option value="CAE">CAE</option>
+             <option value="IELTS">IELTS</option>
+             <option value="Club">Club</option>
+             </select>
+             <br>
+            <div style="padding-bottom: 10px;"></div>
+
+            <select required name='wd_or_we' 
+            class='unsetter'type="text"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+             <option selected disabled value="">Class days</option>
+             <option value="WD">Weekdays</option>
+             <option value="WE">Weekends</option>
+             <option value="IELTS">IELTS</option>
+             <option value="Club">Club</option>
+             
+             </select>
+             <br>
+            <div style="padding-bottom: 10px;"></div>
+
+            <input  required name='no_stu' 
+            class='unsetter'type="text" placeholder="Number of students"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            <div style="padding-bottom: 10px;"></div>
+            
+            <div style="padding-top: 20px; padding-left: 250px;"><input type="submit", value="Submit"></div>
+            </form>
+        </div>
+    {% endblock %}
+</body>

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+<head>
+    {%block head%}
+    {%endblock%}
+</head>
+<body>
+    {%block body%}
+    
+        <center>
+            <h1>{{class_to_show[0][1]['class_name']}}</h1>
+            <p><a href="/clsupdate/{{class_to_show[0][1]['c_id']}}">Update data</a></p>
+            <p><a href="/classes/delete/{{class_to_show[0][1]['c_id']}}">Delete entry</a></p>
+        </center>
+
+        <table id="customers">
+           <tr>
+               <th>ID</th>
+               <th>Clas Name</th>
+               <th>Main Teacher</th>
+               <th>Class category</th>
+               <th>Time</th>
+               <th>Days</th>
+               <th>Student number</th>
+               <th>Assistant number</th>
+           </tr>
+           <tr>
+               <td>{{class_to_show[0][1]['c_id']}}</td>
+               <td>{{class_to_show[0][1]['class_name']}}</td>
+               <td>{{class_to_show[0][1]['main_name']}}</td>
+               <td>{{class_to_show[0][1]['class_cat']}}</td>
+               <td>{{class_to_show[0][1]['time_from']}} : {{class_to_show[0][1]['time_to']}}</td>
+               <td>{{class_to_show[0][1]['wd_or_we']}}</td>
+               <td>{{class_to_show[0][1]['no_stu']}}</td>
+               <td>{{no}}</td>
+           </tr>
+        
+            
+          </table>
+          <br>
+          <h2>List of assistant teachers</h2>
+          <table id="customers">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Days assigned</th>
+               
+            </tr>
+            {%for i in at_to_show %}
+            <tr>
+                <td>{{i[1]['id']}}</td>
+                <td><a href="/assistants/p/{{i[1]['id']}}">{{i[1]['namea']}}</a></td>
+                <td>{{ i[1]['class_day']}}</td>
+            </tr>
+            {%endfor%}
+            
+            
+             
+           </table>
+    
+    {%endblock%}
+</body>

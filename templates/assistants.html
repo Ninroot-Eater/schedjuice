@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    
+    {% block body%}
+    <h1 style="text-align: center;">Assistant list</h1>
+    <p style="text-align: center;"><a href="/assistants/insert">Add an entry</a></p>
+    <br>
+    
+
+    <table id="customers">
+        <tr>
+            <th><a href="/assistants/s/sort_id">ID</a></th>
+            <th><a href="/assistants/s/sort_namea">Name</a></th>
+            <th><a href="/assistants/s/sort_gender">Gender</a></th>
+            <th><a href="/assistants/s/sort_c_id">Class</a></th>
+            
+    
+        </tr>
+        
+        
+        {% for i in at_to_show %}
+        <tr>
+    
+            <td><a href="/assistants/p/{{i[1]['id']}}">{{i[1]['id']}}</a></td>
+            <td><a href="/assistants/p/{{i[1]['id']}}">{{i[1]['namea']}}</a></td>
+            <td>{{i[1]['gender']}}</td>
+            
+            <td>
+                
+                    
+                    
+                <a href="/classes/p/{{i[1]['c_id']}}">{{i[1]['class_name']}}   [{{i[1]['c_id']}}]</a>
+                    
+                    
+                
+            </td>
+            
+            
+        
+            </tr>
+        {% endfor %}
+        
+        
+      </table>
+    
+
+    {%endblock%}
+</body>
+
+

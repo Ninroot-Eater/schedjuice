@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+<head>
+    {%block head%}
+    {%endblock%}
+</head>
+<body>
+    {%block body%}
+    
+        <center>
+            <h1>{{at_to_show[0][1]['namea']}}</h1>
+            <p><a href="/atupdate/{{at_to_show[0][1]['id']}}">Update data</a></p>
+            <p><a href="/assistants/delete/{{at_to_show[0][1]['id']}}">Delete entry</a></p>
+        
+        </center>
+
+        <table id="customers">
+           <tr>
+               <th>ID</th>
+               <th>English name</th>
+               <th>Gender</th>
+               <th>Email</th>
+               <th>Contact</th>
+               <th>Class List</th>
+           </tr>
+           <tr>
+               <td>{{at_to_show[0][1]['id']}}</td>
+               <td>{{at_to_show[0][1]['nameb']}}</td>
+               <td>{{at_to_show[0][1]['gender']}}</td>
+               <td>{{at_to_show[0][1]['email']}}</td>
+               <td>{{at_to_show[0][1]['contact']}}</td>
+               <td>
+                   <ol>
+                       {%for i in at_to_show%}
+                       <li><a href="/classes/p/{{i[1]['c_id']}}">{{i[1]['class_name']}}  [{{i[1]['c_id']}}]</a>
+                           <ul>
+                            <li>{{i[1]['class_day']}}</li>
+                           </ul>
+                       </li>
+                       <br>
+                       
+                       {%endfor%}
+                    </ol>
+                </td>
+
+
+           </tr>
+            
+          </table>
+          <br>
+          <h2>Free times of the week</h2>
+        <table id = "customers">
+        <tr>
+            {% for i in free_time %}
+            <th>{{i[0]}}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for i in free_time %}
+            <ul>
+            <td>{% for x in i[2] %}
+                <li>from {{x[0]}} to {{x[1]}}</li>
+                {% endfor %}
+            </td>
+            </ul>
+            {% endfor %}
+        </tr>
+
+      </table>
+    
+    {%endblock%}
+</body>

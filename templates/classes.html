@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    
+    {% block body%}
+    <h1 style="text-align: center;">Class list</h1>
+    <p style="text-align: center;"><a href="/classes/insert">Add an entry</a></p>
+    <br>
+    <center>
+    <form class="unsetter" method="POST" action="/classes">
+        <p>Filter by:</p>
+        
+        <select name="filter-class" id="" >
+            <optgroup label="Category">
+                <option  value="NONE">All</option>
+                <option  value="Starters">Starters</option>
+                <option  value="Movers">Movers</option>
+                <option  value="Flyers">Flyers</option>
+                <option  value="KET">KET</option>
+                <option  value="FCE">FCE</option>
+                <option  value="CAE">CAE</option>
+                <option  value="IELTS">IELTS</option>
+                <option  value="Club">Clubs</option>
+            </optgroup>
+            
+        </select>
+        <br>
+        <p></p>
+        <input class = 'unsetter' type="submit" value="Go to"
+        style="border: 3px solid #000; padding: 3px;"/>
+        
+        
+ 
+    </form>
+    </center>
+    <br>
+    <br>
+
+    <table id="customers">
+        <tr>
+            <th><a href="/classes/s/sort_id">ID</a> </th>
+            <th><a href="/classes/s/sort_name">Name</a></th>
+            <th><a href="/classes/s/sort_cats">Category</a></th>
+            <th><a href="/classes/s/sort_time">Time</a></th>
+            <th><a href="/classes/s/sort_mt">Main Teacher</a></th>
+            <th><a href="/classes/s/sort_stu_no">Student number</a></th> 
+            
+    
+        </tr>
+        
+        {%for i in class_lst%}
+        <tr>
+    
+            <td><a href="/classes/p/{{i[1]['c_id']}}">{{i[1]['c_id']}}</a></td>
+            <td><a href="/classes/p/{{i[1]['c_id']}}">{{i[1]['class_name']}}</a></td>
+            <td>{{i[1]['class_cat']}}</td>
+            <td>{{i[1]['time_from']}} : {{i[1]['time_to']}}</td>
+            <td>{{i[1]['main_name']}}</td>
+            <td>{{i[1]['no_stu']}}</td>
+            
+            
+        
+            </tr>
+        {%endfor%}
+
+        
+      </table>
+      
+    
+
+    {%endblock%}
+</body>
+

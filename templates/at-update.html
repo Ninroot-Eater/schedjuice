@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    <h1>UPDATE ASSISTANT DATA </h1>
+    <div style="align-self: center; align-items: center; margin-left: 5%;" >
+        <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Burmese name</p>
+        <form class='unsetter'action="/atupdate/{{at_to_show[0]['id']}}" method='POST'>
+            <input  name='namea' 
+            class='unsetter'type="text" placeholder="{{at_to_show[0]['namea']}}"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            
+            
+        </form> 
+        
+        <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">English name</p>
+        <form class='unsetter'action="/atupdate/{{at_to_show[0]['id']}}" method='POST'>
+            <input  name='nameb' 
+            class='unsetter'type="text" placeholder="{{at_to_show[0]['nameb']}}"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            
+            
+        </form> 
+
+
+        <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Gender</p>
+        <form class='unsetter'action="/atupdate/{{at_to_show[0]['id']}}" method='POST'>
+            <select  name='gender' 
+            class='unsetter'type="text"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+             <option selected disabled value="">Gender</option>
+             <option value="Female">Female</option>
+             <option value="Male">Male</option>
+             </select>
+             <br>
+             <div style="height: 20px;"></div>
+             <input   
+            class='unsetter'type="submit" value="Submit gender"
+             style='border: solid 2px #000; padding: 5px; width: 100px;border-radius: 50px; background-color: #000; color: white;'>
+             
+            <br>
+        </form> 
+        
+        <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Date of birth</p>
+        <form class='unsetter'action="/atupdate/{{at_to_show[0]['id']}}" method='POST'>
+            <input  name='birthdate' 
+            class='unsetter'type="text" placeholder="{{at_to_show[0]['birthdate']}}"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            
+            
+        </form> 
+            
+    <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Email address</p>
+        <form class='unsetter'action="/atupdate/{{at_to_show[0]['id']}}" method='POST'>
+            <input  name='email' 
+            class='unsetter'type="text" placeholder="{{at_to_show[0]['email']}}"
+             style='border: solid 2px #000; padding: 5px; width: 300px;'>
+            <br>
+            
+            
+        </form>        
+
+        
+    <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Phone number</p>
+    <form class='unsetter'action="/atupdate/{{at_to_show[0]['id']}}" method='POST'>
+        <input  name='contact' 
+        class='unsetter'type="text" placeholder="{{at_to_show[0]['contact']}}"
+         style='border: solid 2px #000; padding: 5px; width: 300px;'>
+        <br>
+        
+        
+        </form> 
+    
+
+        
+        {%for i in at_to_show[0].keys()%}
+        {% if i in ['id', 'namea', 'nameb', 'gender', 'contact', 'email', 'birthdate']%}
+
+        {% else %}
+        <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{i}}</p>
+            <form class='unsetter'action="/atupdate/{{at_to_show[0]['id']}}" method='POST'>
+                <input  name='{{i}}' 
+                class='unsetter'type="text" placeholder="{{at_to_show[0][i]}}"
+                 style='border: solid 2px #000; padding: 5px; width: 300px;'>
+                <br>
+                
+                
+            </form> 
+        {% endif%}
+        {% endfor %}
+    
+
+    </div>
+
+    {% endblock %}
+</body>

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+<h1>UPDATE CLASS DATA</h1>
+<div style="align-self: center; align-items: center; margin-left: 5%;" >
+    <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Class' name</p>
+    <form class='unsetter'action="/clsupdate/{{class_to_show[0]['c_id']}}" method='POST'>
+        <input  name='class_name' 
+        class='unsetter'type="text" placeholder="{{class_to_show[0]['class_name']}}"
+         style='border: solid 2px #000; padding: 5px; width: 300px;'>
+        <br>
+        
+        
+    </form> 
+    <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Class starts at</p>
+    <form class='unsetter'action="/clsupdate/{{class_to_show[0]['c_id']}}" method='POST'>
+        <input  name='time_from' 
+        class='unsetter'type="text" placeholder="{{class_to_show[0]['time_from']}}"
+         style='border: solid 2px #000; padding: 5px; width: 300px;'>
+        <br>
+        
+        
+    </form>
+    <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Class ends at</p>
+    <form class='unsetter'action="/clsupdate/{{class_to_show[0]['c_id']}}" method='POST'>
+        <input  name='time_to' 
+        class='unsetter'type="text" placeholder="{{class_to_show[0]['time_to']}}"
+         style='border: solid 2px #000; padding: 5px; width: 300px;'>
+        <br>
+        
+        
+    </form>
+    <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Main teacher's name</p>
+    <form class='unsetter'action="/clsupdate/{{class_to_show[0]['c_id']}}" method='POST'>
+        <input  name='main_name' 
+        class='unsetter'type="text" placeholder="{{class_to_show[0]['main_name']}}"
+         style='border: solid 2px #000; padding: 5px; width: 300px;'>
+        <br>
+        
+        
+    </form>
+    <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Class' category</p>
+    <form class='unsetter'action="/clsupdate/{{class_to_show[0]['c_id']}}" method='POST'>
+        <input  name='class_cat' 
+        class='unsetter'type="text" placeholder="{{class_to_show[0]['class_cat']}}"
+         style='border: solid 2px #000; padding: 5px; width: 300px;'>
+        <br>
+        
+        
+    </form>
+    <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Student number</p>
+    <form class='unsetter'action="/clsupdate/{{class_to_show[0]['c_id']}}" method='POST'>
+        <input  name='no_stu' 
+        class='unsetter'type="text" placeholder="{{class_to_show[0]['no_stu']}}"
+         style='border: solid 2px #000; padding: 5px; width: 300px;'>
+        <br>
+        
+        
+    </form>    
+</div>
+
+
+    {% endblock %}
+</body>
