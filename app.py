@@ -5,13 +5,13 @@ import sqlalchemy
 from operator import itemgetter
 from flask_login import LoginManager ,  current_user , UserMixin  , login_user , login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from config import key
+
 
 
 # setting up the database
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data0.db'
-print(key)
+
 app.config['SECRET_KEY'] = "ho81xV9Ck4W_sdhqUo68iw"
 db = SQLAlchemy(app)
 login = LoginManager(app)
@@ -670,15 +670,14 @@ def login():
         else:
             login_user(user)
             next_page = request.args.get('next')
-            
-            
             session.permanent = True
+            return redirect(url_for('assistants'))
             if next_page is not None:
                 return redirect(url_for(next_page))
             
             
-        if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('assistants')
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = url_for('assistants')
     
     return render_template('login.html')
     
