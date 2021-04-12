@@ -657,6 +657,7 @@ def search():
 # user authentication stuffs
 @app.route('/login', methods = ['POST', "GET"])
 def login():
+    x = session
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     user_input = request.form.get('name')
@@ -679,7 +680,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('assistants')
     
-    return render_template('login.html')
+    return render_template('login.html', x = x)
     
 
 
