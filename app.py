@@ -668,6 +668,7 @@ def login():
             login_user(user)
             next_page = request.args.get('next')
             print(next_page)
+            session.permanent = True
             if next_page is not None:
                 return redirect(url_for(next_page))
             
