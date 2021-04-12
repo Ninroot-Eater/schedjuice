@@ -314,14 +314,14 @@ classes_id_list = [i[0] for i in q.cursor.fetchall()]
 
 @app.route('/')
 def index():
-    x = session
+    
     q = db.session.execute("SELECT id FROM assistants ORDER BY id")
     assistants_id_list = [i[0] for i in q.cursor.fetchall()]
 
     q = db.session.execute("SELECT c_id FROM classes ORDER BY c_id")
     classes_id_list = [i[0] for i in q.cursor.fetchall()]
     
-    return render_template('index.html', x = x)
+    return render_template('index.html')
 
 @app.route('/register', methods = ["POST"])
 def register():
@@ -657,8 +657,7 @@ def search():
 # user authentication stuffs
 @app.route('/login', methods = ['POST', "GET"])
 def login():
-    x = session
-    print(x)
+    
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     user_input = request.form.get('name')
@@ -681,7 +680,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('assistants')
     
-    return render_template('login.html', x = x)
+    return render_template('login.html')
     
 
 
