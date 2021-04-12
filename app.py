@@ -5,13 +5,13 @@ import sqlalchemy
 from operator import itemgetter
 from flask_login import LoginManager ,  current_user , UserMixin  , login_user , login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
-import secrets
+from config import key
 
 
 # setting up the database
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data0.db'
-key = secrets.token_urlsafe(16)
+
 app.config['SECRET_KEY'] = key
 db = SQLAlchemy(app)
 login = LoginManager(app)
