@@ -11,8 +11,8 @@ from config import key
 # setting up the database
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data0.db'
-
-app.config['SECRET_KEY'] = key
+print(key)
+app.config['SECRET_KEY'] = "ho81xV9Ck4W_sdhqUo68iw"
 db = SQLAlchemy(app)
 login = LoginManager(app)
 login.login_view = "login"
@@ -658,6 +658,7 @@ def search():
 @app.route('/login', methods = ['POST', "GET"])
 def login():
     x = session
+    print(x)
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     user_input = request.form.get('name')
