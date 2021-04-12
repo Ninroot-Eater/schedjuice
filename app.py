@@ -667,13 +667,16 @@ def login():
         else:
             login_user(user)
             next_page = request.args.get('next')
-            return redirect(url_for('index'))
+            print(next_page)
+            if next_page is not None:
+                return redirect(url_for(next_page))
             
             
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('assistants')
     
     return render_template('login.html')
+    
 
 
 
@@ -689,4 +692,4 @@ def wentwrong():
     return render_template('wentwrong.html')
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
